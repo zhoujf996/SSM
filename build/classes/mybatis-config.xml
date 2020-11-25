@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-config.dtd">
+ 
+ 
+ 
+<configuration>
+	
+	<!-- <properties>
+		<property name="jdbc.driver" value="com.mysql.jdbc.Driver"/>
+	</properties> -->
+	
+	<!-- 
+		<properties>:设置或引入资源文件
+		resource:在类路径下访问资源文件
+		url:在网络路径或磁盘路径下访问资源文件
+	 -->
+	<properties resource="jdbc.properties"></properties>
+	
+	<settings>
+		<!-- 将下划线映射成驼峰，user_name映射为userName -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 开启延迟加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 是否查询所有数据 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<!-- 是否开启二级缓存 -->
+		<setting name="cacheEnabled" value="true"/>
+	</settings>
+	
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+	</plugins>
+</configuration>
